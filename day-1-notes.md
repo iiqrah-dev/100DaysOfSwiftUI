@@ -1,5 +1,7 @@
 # Day 1 - #100DaysOfSwiftUI
 
+### "Programming is an art: don't spend all your time sharpening your pencil when you should be drawing."
+
 - Why Swift and SwiftUI? 
   
     - They are a relatively new language (est. 2014) and UI framework (est. 2019) that go hand in hand and leverage the capabilities of modern languages getting rid of the clunkiness that comes with old languages/framework.
