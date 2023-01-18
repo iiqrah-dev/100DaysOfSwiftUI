@@ -38,5 +38,5 @@
   - Type Annotations:
   - Simple Data Type Annotations
   - Group Data Type Annotations
-  - Checkpoint 2    
+  - [Checkpoint 2](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-2.playground)    
     
