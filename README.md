@@ -19,7 +19,7 @@
   - Working with Strings
     - Concatenation 
     - Interpolation
-  - Checkpoint 1 
+  - [Checkpoint 1](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-1.playground)
   
   
 - [x] Day 3
