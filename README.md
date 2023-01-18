@@ -48,5 +48,16 @@
       - the key name may or may not exist, so the value is accessed as an optional, one way around this is using a default value, e.g. `myDict[key1, default "Unknown"]`
     - to create empty ditionaries: `let employee = [String: Int]()`
     - dicts are type safe too so you can only mix data by defining it, e.g `let employee = ["name": "Iqrah","age": 23] as [String : Any]`
+    
+  - Sets ([value1, value2])
+    - another way to store groups of data but without any duplicates or an order which is optimised for a really fast lookup. 
+    - to add new items, use `mySet.insert()` instead of append
+    
+  - Enum {case value1, value2}
+    - set of developer defined values to make the code more efficient, accurate and safer 
+    - e.g : `enum Weekdays { case mon, tue, wed, thu, fri, sat, sun}` 
+    - then use `day = Weekdays.mon` instead of `day = "Monday"` to assign a value to `day` variable
+    - they are also faster and optimised to store for Swift than Strings
+
 
     
