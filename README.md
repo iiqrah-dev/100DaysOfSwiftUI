@@ -57,5 +57,5 @@
   - For Loop
   - While Loop
   - Continue/Break
-  - Checkpoint 3
+  - [Checkpoint 3](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-3.playground)
   
