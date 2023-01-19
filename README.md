@@ -49,3 +49,13 @@
   - Logical Operators:
   - Switch statements
   - Ternary Conditional Operator
+  
+- [x] Day 6
+
+  - QofTD: "It’s hardware that makes a machine fast, but it’s software that makes a fast machine slow." - Craig Bruce
+  
+  - For Loop
+  - While Loop
+  - Continue/Break
+  - Checkpoint 3
+  
