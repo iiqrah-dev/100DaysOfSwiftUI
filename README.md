@@ -68,23 +68,12 @@
   - Return Multiple Values
   - Parameters
   
-- [] Day 8
+- [x] Day 8
 
   - QofTD: "Life is what happens when you’re busy making other plans." - John Lennon
   
   - Default Parameter Values
-    - make complex functions easier to call, focusing on the important parts that do need to change 
-    - e.g. `func findDirections(from: String, to: String, route: String = "fastest", avoidHighways: Bool = false) {}`
-    
   - Handling Errors
-    - follows three steps:
-      - define the errors that might happen, an enum that conforms to `Error`
-      - write function that works normal but also throws error, use `throws` keyword in the function definition
-      - run and test function with errors, using a do, try, catch block
-        - very rarely can use try! and avoid using do,catch
-        - in the do block, always have to explicitly mention `try` for every error throwing function
-    - Apple provides some error messages of their own taht can be used in the ctch block `catch{ print(error.localizedDescription) }`
-  
   - [Checkpoint 4](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-4.playground)
     
   
