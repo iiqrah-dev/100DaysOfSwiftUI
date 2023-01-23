@@ -75,6 +75,16 @@
   - Default Parameter Values
   - Handling Errors
   - [Checkpoint 4](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-4.playground)
+  
+
+- [ ] Day 16
+
+  - QofTD: "be willing to be a beginner every single morning." - Meister Eckhart
+  
+  - New Xcode project set-up
+  - Creating a form Form {}
+    - scrolling lists of data
+    - can exist upto 10 views inside, to add more use `Group {} ` or `Section {}`
     
   
   
