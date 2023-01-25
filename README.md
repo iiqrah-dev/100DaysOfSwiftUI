@@ -76,6 +76,16 @@
   - Handling Errors
   - [Checkpoint 4](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-4.playground)
   
+- [x] Day 9
+
+  - QofTD: "You can't expect to hit the jackpot if you don't put a few nickels in the machine." - Flip Wilson
+  
+  - Assign function to a variable `var newFunctionName = oldFunctionName` 
+  - Calling functions inside a fucntion
+  - Closure:
+  - Trailing Closures
+  - Accepting functions as a parameter for a function
+  - [Checkpoint 5](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-5.playground)
 
 - [ ] Day 16
 
