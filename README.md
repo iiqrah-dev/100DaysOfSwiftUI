@@ -96,6 +96,15 @@
   - Computed property values
   - Property Observers
   - Custom initilsers
+
+- [x] Day 11
+
+  - QofTD: "Privacy is power – what people don’t know, they can’t ruin." - Anon
+  
+  - Access control
+  - Static properties/methods
+  - `self` refers to current value of struct, `Self` refers to current type of struct   
+  - [Checkpoint 6](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-6.playground)     
    
 - [ ] Day 16
 
