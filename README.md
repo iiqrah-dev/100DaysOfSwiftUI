@@ -104,7 +104,26 @@
   - Access control
   - Static properties/methods
   - `self` refers to current value of struct, `Self` refers to current type of struct   
-  - [Checkpoint 6](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-6.playground)     
+  - [Checkpoint 6](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-6.playground) 
+
+- [x] Day 12
+
+  - QofTD: "Any fool can write code that a computer can understand, but good programmers write code that humans can understand." - Martin Fowler
+  
+  - Classes
+    - They are similar to structs in the following ways:
+      - name them as you please
+      - have property, methods, access control 
+      - create custom init
+    - The following are class specific abilities:
+      - inheritance: the ability to build upon functionality from existing classes
+      - do not come with memberwise init
+      - referencing: two copies of a class reference to the same class, instead of having two separate copies
+      - when final copy of class is called, the class can be deinitilised 
+      - variable properties in a class can be changed, even if the instance is a constant
+      
+    - In SwiftUI, structs are used for UI and classes are used for data handeling 
+    - 
    
 - [ ] Day 16
 
