@@ -19,7 +19,7 @@
   - Working with Strings
     - Concatenation 
     - Interpolation
-  - [Checkpoint 1](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-1.playground)
+  - [Checkpoint 1](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-1.playground)
   
   
 - [x] Day 3
@@ -38,7 +38,7 @@
   - Type Annotations:
   - Simple Data Type Annotations
   - Group Data Type Annotations
-  - [Checkpoint 2](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-2.playground)    
+  - [Checkpoint 2](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-2.playground)    
 
 - [x] Day 5
 
@@ -57,7 +57,7 @@
   - For Loop
   - While Loop
   - Continue/Break
-  - [Checkpoint 3](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-3.playground)
+  - [Checkpoint 3](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-3.playground)
   
 - [x] Day 7
 
@@ -74,7 +74,7 @@
   
   - Default Parameter Values
   - Handling Errors
-  - [Checkpoint 4](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-4.playground)
+  - [Checkpoint 4](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-4.playground)
   
 - [x] Day 9
 
@@ -85,7 +85,7 @@
   - Closure:
   - Trailing Closures
   - Accepting functions as a parameter for a function
-  - [Checkpoint 5](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-5.playground)
+  - [Checkpoint 5](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-5.playground)
 
 - [x] Day 10
 
@@ -104,7 +104,7 @@
   - Access control
   - Static properties/methods
   - `self` refers to current value of struct, `Self` refers to current type of struct   
-  - [Checkpoint 6](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-6.playground) 
+  - [Checkpoint 6](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-6.playground) 
 
 - [x] Day 12
 
@@ -115,7 +115,7 @@
   - Inheritance
   - Initializers
   - Deinitializers
-  - [Checkpoint 7](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoint-7.playground) 
+  - [Checkpoint 7](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-7.playground) 
    
 - [ ] Day 16
 
