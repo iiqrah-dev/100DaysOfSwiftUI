@@ -116,6 +116,15 @@
   - Initializers
   - Deinitializers
   - [Checkpoint 7](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-7.playground) 
+  
+- [x] [Day 13](https://github.com/iiqrah-dev/100DaysOfSwiftUI/blob/main/notes/day-13-notes.md)
+
+  - QofTD: "Inside every large program, there is a small program trying to get out." - Tony Hoare
+  
+  - Protocols
+  - Opaque return types
+  - Extensions
+  - [Checkpoint 8](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-8.playground)  
    
 - [ ] Day 16
 
