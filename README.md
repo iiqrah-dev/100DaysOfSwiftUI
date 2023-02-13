@@ -125,7 +125,16 @@
   - Opaque return types
   - Extensions
   - [Checkpoint 8](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-8.playground)  
-   
+  
+- [x] [Day 14](https://github.com/iiqrah-dev/100DaysOfSwiftUI/blob/main/notes/day-14-notes.md)
+
+  - QofTD: Null references – literally when a variable has no value – were invented by Tony Hoare way back in 1965. When asked about it in retrospect, he said “I call it my billion-dollar mistake” because they lead to so many problems.
+  
+  - Optionals
+  - Nil coalescing: let us provide default vale incase optional contains nil 
+  - Optional try?
+  - [Checkpoint 9](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-9.playground)  
+
 - [ ] Day 16
 
   - QofTD: "be willing to be a beginner every single morning." - Meister Eckhart
