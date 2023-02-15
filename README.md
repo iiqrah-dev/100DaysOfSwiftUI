@@ -139,10 +139,11 @@
 
   - QofTD: "be willing to be a beginner every single morning." - Meister Eckhart
   
-  - New Xcode project set-up
-  - Creating a form Form {}
-    - scrolling lists of data
-    - can exist upto 10 views inside, to add more use `Group {} ` or `Section {}`
+  - [Project 1 - WeSplit](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/WeSplit)
+
+- Useful Xcode Commands
+  - Option+Cmd+P : Resume preview updating
+  - Cmd+R : Run app on selected simulator
     
   
   
