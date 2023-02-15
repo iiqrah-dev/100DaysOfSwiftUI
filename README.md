@@ -135,11 +135,10 @@
   - Optional try?
   - [Checkpoint 9](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/checkpoints/checkpoint-9.playground)  
 
-- [ ] Day 16
+- [x] [Project 1 - WeSplit](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/WeSplit)
 
-  - QofTD: "be willing to be a beginner every single morning." - Meister Eckhart
-  
-  - [Project 1 - WeSplit](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/WeSplit)
+  - QofTD 16: "Be willing to be a beginner every single morning." - Meister Eckhart
+  - QofTD 17: "Experience without theory is blind, but theory without experience is mere intellectual play." - Immanuel Kant
 
 - Useful Xcode Commands
   - Option+Cmd+P : Resume preview updating
