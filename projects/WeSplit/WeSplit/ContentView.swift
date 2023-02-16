@@ -19,23 +19,35 @@ struct ContentView: View {
         NavigationView {
             Form{
                 Section {
-                    TextField("What is the total bill amount? ", value: $totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP"))
+                    TextField("Enter total bill amount? ", value: $totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP"))
                         .keyboardType(.decimalPad)
                     //                modifier to restrict keyboard to be only numbers
                     
-                    
-                    Picker("How many people? ", selection: $numberOfPeople){
-                        ForEach(1..<100){
-                            Text("\($0) people")
-                        }
-                    }.pickerStyle(.menu)
-                    
-                    Picker("What % tip?", selection: $tipPercentage){
-                        ForEach(tipPercentOptions, id: \.self){
-                            Text($0, format: .percent)
-                        }
-                    }.pickerStyle(.segmented)
+                }header: {
+                    Text("What is the total bill? ")
                 }
+                    
+                    Section {
+                        Picker("Choose ", selection: $numberOfPeople){
+                            ForEach(2..<100){
+                                Text("\($0) people")
+                            }
+                        }.pickerStyle(.menu)
+                    }header: {
+                        Text("How many people?")
+                    }
+                    
+                    Section {
+                        Picker("Tip", selection: $tipPercentage){
+                            ForEach(tipPercentOptions, id: \.self){
+                                Text($0, format: .percent)
+                            }
+                        }.pickerStyle(.segmented)
+                    }header: {
+                        Text("What % of tip do you choose?")
+                    }
+                    
+                
             
             Section{
     //                + Adds multiple texts together
