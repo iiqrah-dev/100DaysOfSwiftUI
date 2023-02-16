@@ -33,7 +33,7 @@ struct ContentView: View {
                     //                modifier to restrict keyboard to be only numbers
                     
                 }header: {
-                    Text("What is the total bill? ")
+                    Text("What is the total bill? 💸")
                 }
                     
                     Section {
@@ -43,7 +43,7 @@ struct ContentView: View {
                             }
                         }.pickerStyle(.menu)
                     }header: {
-                        Text("How many people?")
+                        Text("How many people? 🤔")
                     }
                     
                     Section {
@@ -53,7 +53,7 @@ struct ContentView: View {
                             }
                         }.pickerStyle(.segmented)
                     }header: {
-                        Text("What % of tip do you choose?")
+                        Text("What % of tip do you choose? 💁‍♀️")
                     }
                     
                 
@@ -61,8 +61,10 @@ struct ContentView: View {
             Section{
     //                + Adds multiple texts together
     //                Used this as I wanted the symbol instead of currency code String
-                Text("Bill Amount: ")
-                + Text(totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
+                Text("Amount per person is ")
+                + Text(totalPerperson, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
+            }header: {
+                Text("Calculated amount ⬇️")
             }
             }
             
