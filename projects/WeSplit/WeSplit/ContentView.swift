@@ -17,8 +17,11 @@ struct ContentView: View {
     
     var body: some View {
         Form{
-            
-            Text("Test")
+            Section {
+                TextField("What is the total bill amount? ", value: $totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP"))
+                    .keyboardType(.decimalPad)
+                //                modifier to restrict keyboard to be only numbers
+            }
         }
     }
 }
