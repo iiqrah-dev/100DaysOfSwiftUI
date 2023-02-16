@@ -21,6 +21,13 @@ struct ContentView: View {
                 TextField("What is the total bill amount? ", value: $totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP"))
                     .keyboardType(.decimalPad)
                 //                modifier to restrict keyboard to be only numbers
+                
+                
+                Picker("How many people? ", selection: $numberOfPeople){
+                    ForEach(1..<100){
+                        Text("\($0)")
+                    }
+                }
             }
         
         Section{
