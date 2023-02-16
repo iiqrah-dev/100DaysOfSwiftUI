@@ -16,26 +16,30 @@ struct ContentView: View {
     let tipPercentOptions = [0, 5, 10, 15, 20, 25]
     
     var body: some View {
-        Form{
-            Section {
-                TextField("What is the total bill amount? ", value: $totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP"))
-                    .keyboardType(.decimalPad)
-                //                modifier to restrict keyboard to be only numbers
-                
-                
-                Picker("How many people? ", selection: $numberOfPeople){
-                    ForEach(1..<100){
-                        Text("\($0)")
+        NavigationView {
+            Form{
+                Section {
+                    TextField("What is the total bill amount? ", value: $totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP"))
+                        .keyboardType(.decimalPad)
+                    //                modifier to restrict keyboard to be only numbers
+                    
+                    
+                    Picker("How many people? ", selection: $numberOfPeople){
+                        ForEach(1..<100){
+                            Text("\($0) people")
+                        }
                     }
                 }
+            
+            Section{
+    //                + Adds multiple texts together
+    //                Used this as I wanted the symbol instead of currency code String
+                Text("Bill Amount: ")
+                + Text(totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
             }
-        
-        Section{
-//                + Adds multiple texts together
-//                Used this as I wanted the symbol instead of currency code String
-            Text("Bill Amount: ")
-            + Text(totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
-        }
+            }
+            
+            .navigationTitle("WeSplit App")
         }
     }
 }
