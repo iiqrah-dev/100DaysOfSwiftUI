@@ -22,6 +22,13 @@ struct ContentView: View {
                     .keyboardType(.decimalPad)
                 //                modifier to restrict keyboard to be only numbers
             }
+        
+        Section{
+//                + Adds multiple texts together
+//                Used this as I wanted the symbol instead of currency code String
+            Text("Bill Amount: ")
+            + Text(totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
+        }
         }
     }
 }
