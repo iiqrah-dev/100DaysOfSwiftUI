@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var totalAmount = 0.0
+    @State private var numberOfPeople = 0
+    @State private var tipPercentage = 20
+    
+    let tipPercentOptions = [0, 5, 10, 15, 20, 25]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        Form{
+            
+            Text("Test")
         }
-        .padding()
     }
 }
 
