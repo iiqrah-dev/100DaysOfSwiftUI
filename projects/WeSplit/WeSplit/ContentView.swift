@@ -28,7 +28,13 @@ struct ContentView: View {
                         ForEach(1..<100){
                             Text("\($0) people")
                         }
-                    }
+                    }.pickerStyle(.menu)
+                    
+                    Picker("What % tip?", selection: $tipPercentage){
+                        ForEach(tipPercentOptions, id: \.self){
+                            Text("\($0)%")
+                        }
+                    }.pickerStyle(.segmented)
                 }
             
             Section{
