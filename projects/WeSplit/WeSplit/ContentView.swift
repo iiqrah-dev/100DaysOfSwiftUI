@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
     
+    @FocusState private var isBillAmountFocused: Bool
+    
     let tipPercentOptions = [0, 5, 10, 15, 20, 25]
     
     var totalPerperson: Double {
@@ -29,6 +31,7 @@ struct ContentView: View {
             Form{
                 Section {
                     TextField("Enter total bill amount? ", value: $totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP"))
+                        .focused($isBillAmountFocused)
                         .keyboardType(.decimalPad)
                     //                modifier to restrict keyboard to be only numbers
                     
@@ -69,6 +72,13 @@ struct ContentView: View {
             }
             
             .navigationTitle("WeSplit App")
+        }.toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    isBillAmountFocused = false
+                }
+            }
         }
     }
 }
