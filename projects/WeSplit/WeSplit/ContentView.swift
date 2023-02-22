@@ -30,11 +30,15 @@ struct ContentView: View {
         return totalPerPerson
     }
     
+    var currencyFormatter: FloatingPointFormatStyle<Double>.Currency {
+        return .currency(code: Locale.current.currency?.identifier ?? "GBP")
+    }
+    
     var body: some View {
         NavigationView {
             Form{
                 Section {
-                    TextField("Enter total bill amount? ", value: $totalAmount, format: .currency(code: Locale.current.currency?.identifier ??  "GBP"))
+                    TextField("Enter total bill amount? ", value: $totalAmount, format: currencyFormatter)
                         .focused($isBillAmountFocused)
                         .keyboardType(.decimalPad)
                     //                modifier to restrict keyboard to be only numbers
@@ -76,10 +80,10 @@ struct ContentView: View {
     //                + Adds multiple texts together
     //                Used this as I wanted the symbol instead of currency code String
                 Text("Total amount including tip: ")
-                + Text(totalWithTip, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
+                + Text(totalWithTip, format: currencyFormatter )
                 
                 Text("Amount per person: ")
-                + Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
+                + Text(totalPerPerson, format: currencyFormatter )
             }header: {
                 Text("Calculated amount ⬇️")
             }
