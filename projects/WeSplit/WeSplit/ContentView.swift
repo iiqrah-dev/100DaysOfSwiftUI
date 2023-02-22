@@ -17,13 +17,17 @@ struct ContentView: View {
     
     let tipPercentOptions = [0, 5, 10, 15, 20, 25]
     
-    var totalPerperson: Double {
-        let people = Double(numberOfPeople + 2)
+    var totalWithTip: Double {
         let tipAmount = (Double(tipPercentage)/100) * totalAmount
+        let totalWithTip = totalAmount+tipAmount
+        return totalWithTip
         
-        let amountPerPerson = (totalAmount+tipAmount)/people
-        
-        return amountPerPerson
+    }
+    
+    var totalPerPerson: Double {
+        let people = Double(numberOfPeople + 2)
+        let totalPerPerson = totalWithTip/people
+        return totalPerPerson
     }
     
     var body: some View {
@@ -64,8 +68,11 @@ struct ContentView: View {
             Section{
     //                + Adds multiple texts together
     //                Used this as I wanted the symbol instead of currency code String
-                Text("Amount per person is ")
-                + Text(totalPerperson, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
+                Text("Total amount including tip: ")
+                + Text(totalWithTip, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
+                
+                Text("Amount per person: ")
+                + Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ??  "GBP") )
             }header: {
                 Text("Calculated amount ⬇️")
             }
