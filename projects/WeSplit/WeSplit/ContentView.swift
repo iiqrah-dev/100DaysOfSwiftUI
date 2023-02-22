@@ -54,11 +54,18 @@ struct ContentView: View {
                     }
                     
                     Section {
+//                        Picker("Tip", selection: $tipPercentage){
+//                            ForEach(tipPercentOptions, id: \.self){
+//                                Text($0, format: .percent)
+//                            }
+//                        }.pickerStyle(.segmented)
+                        
                         Picker("Tip", selection: $tipPercentage){
-                            ForEach(tipPercentOptions, id: \.self){
+                            ForEach(0..<101){
                                 Text($0, format: .percent)
                             }
-                        }.pickerStyle(.segmented)
+                        }.pickerStyle(.menu)
+                        
                     }header: {
                         Text("What % of tip do you choose? 💁‍♀️")
                     }
