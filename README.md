@@ -139,6 +139,8 @@
 
   - QofTD 16: "Be willing to be a beginner every single morning." - Meister Eckhart
   - QofTD 17: "Experience without theory is blind, but theory without experience is mere intellectual play." - Immanuel Kant
+  - QofTD 18: "The difference between try and triumph is a little umph." - Marvin Phillips
+  
 
 - Useful Xcode Commands
   - Option+Cmd+P : Resume preview updating
