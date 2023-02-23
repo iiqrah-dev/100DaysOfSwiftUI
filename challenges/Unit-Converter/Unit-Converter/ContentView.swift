@@ -8,14 +8,53 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var inputValue:Double = 0
+    
+    @State private var outputValue:Double = 10
+    
+    @State private var inputUnit:String = "cm"
+    @State private var outputUnit:String = "km"
+    
+    private let units = ["cm", "m", "km"]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView{
+            
+            Form{
+                //              Input
+                Section{
+                    TextField("Enter value for conversion", value: $inputValue, format: .number)
+                    Picker("Choose input unit", selection: $inputUnit){
+                        ForEach(units, id: \.self){
+                            Text($0)
+                        }
+                    }.pickerStyle(.segmented)
+                }header: {
+                    Text("Input section")
+                }
+                
+                
+                
+                //              Output Unit
+                Section{
+                    Text(outputValue, format: .number)
+                    Picker("Choose output unit", selection: $outputUnit){
+                        ForEach(units, id: \.self){
+                            Text($0)
+                        }
+                    }.pickerStyle(.segmented)
+                    
+                }
+            header: {
+                Text("Output section")
+            }
+            }
+            
+            .navigationBarTitle("Unit Converter")
         }
-        .padding()
+        
+        
     }
 }
 
