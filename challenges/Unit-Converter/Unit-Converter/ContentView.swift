@@ -31,7 +31,19 @@ struct ContentView: View {
                         }
                     }.pickerStyle(.segmented)
                 }header: {
-                    Text("Input section")
+                    Text("Choose input values")
+                }
+                
+                Section{
+                    
+                    Picker("Choose output unit", selection: $outputUnit){
+                        ForEach(units, id: \.self){
+                            Text($0)
+                        }
+                    }.pickerStyle(.segmented)
+                    
+                }header: {
+                    Text("Choose output unit")
                 }
                 
                 
@@ -39,15 +51,11 @@ struct ContentView: View {
                 //              Output Unit
                 Section{
                     Text(outputValue, format: .number)
-                    Picker("Choose output unit", selection: $outputUnit){
-                        ForEach(units, id: \.self){
-                            Text($0)
-                        }
-                    }.pickerStyle(.segmented)
+                    
                     
                 }
             header: {
-                Text("Output section")
+                Text("Result")
             }
             }
             
