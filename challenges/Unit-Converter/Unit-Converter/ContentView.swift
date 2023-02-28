@@ -9,14 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var inputValue:Double = 0
+    @State private var inputValue:Double = 20
     
     @State private var outputValue:Double = 10
     
     @State private var inputUnit:String = "cm"
     @State private var outputUnit:String = "km"
     
-    private let units = ["cm", "m", "km"]
+    let units = ["cm", "m", "km"]
+    let cmConversion = ["cm": 1.00, "m": 100, "km": 100000]
+        
+    var resultValue: Double {
+        if let x = cmConversion[inputUnit] {
+            if let y = cmConversion[outputUnit] {
+                return(x * inputValue / y)
+            }
+        }
+        return 0
+    }
     
     var body: some View {
         NavigationView{
@@ -50,7 +60,7 @@ struct ContentView: View {
                 
                 //              Output Unit
                 Section{
-                    Text(outputValue, format: .number)
+                    Text(resultValue, format: .number)
                     
                     
                 }
