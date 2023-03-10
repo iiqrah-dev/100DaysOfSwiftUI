@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isShowing = false
     var body: some View {
         VStack {
             ZStack{
@@ -36,8 +38,9 @@ struct ContentView: View {
             }.background(Color(red: 1, green: 0.8, blue: 0))
            
             HStack{
-                Button("Tap Me", role: .destructive){
+                Button("Alert Me", role: .destructive){
                     print("Tapped")
+                    isShowing = true
                 }.buttonStyle(.borderedProminent)
                     .tint(.mint)
                 
@@ -51,9 +54,17 @@ struct ContentView: View {
                 Image(systemName: "pencil")
                     .renderingMode(.original)
             }
+            
 
         }
+        .alert("Alert Title", isPresented: $isShowing){
+            Button("Delete", role: .destructive) { }
+            Button("Cancel", role: .cancel) { }
+        }message: {
+            Text("Please read this.")
+        }
     }
+        
     
   
 }
