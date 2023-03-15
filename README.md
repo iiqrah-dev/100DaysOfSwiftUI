@@ -148,6 +148,11 @@
   - QofTD 20: "beware of bugs in the above code; I have only proved it correct, not tried it." - Donald Knuth
   - QofTD 21: "do what you have to do until you can do what you want to do." - Oprah Winfrey
   - QofTD 22: "the more that you read, the more things you will know; the more that you learn, the more places you'll go." - Dr Seuss
+  
+- [x] [Project 3 - ViewsAndModifiers](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/ViewsAndModifiers)
+
+  - QofTD 23: "there is no magic in magic, it’s all in the details." - Walt Disney
+  - QofTD 24: "any fool can know; the point is to understand" - Albert Einstein
 
 - Useful Xcode Commands
   - Option+Cmd+P : Resume preview updating
