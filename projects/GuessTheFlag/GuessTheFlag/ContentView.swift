@@ -10,9 +10,14 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var isScoreAlertShowing = false
+    @State private var isGameOverAlertShowing = false
+    
     @State private var answerTitle = ""
     @State private var scoreMessage = ""
     @State private var score = 0
+    @State private var questionCount = 1
+    
+    let maxQCount = 8
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     
@@ -36,6 +41,9 @@ struct ContentView: View {
                 }.foregroundColor(.black)
                     .padding(.top)
                 
+                Text("\(questionCount)/\(maxQCount)")
+                    .font(.subheadline.weight(.heavy))
+                
                 Spacer()
                 
                 VStack(spacing: 30){
@@ -56,8 +64,21 @@ struct ContentView: View {
                     .font(.largeTitle.weight(.semibold))
                 Spacer()
             }
+            .alert("Game Over", isPresented: $isGameOverAlertShowing){
+                Button("Restart", action: newGame)
+            }message: {
+                Text("Final Score: \(score)")
+            }
+            
         }.alert(answerTitle, isPresented: $isScoreAlertShowing){
-            Button("Continue", action: nextQuestion)
+            Button("Continue"){
+                if questionCount == maxQCount {
+                    isGameOverAlertShowing = true
+                }
+                else{
+                    nextQuestion()
+                }
+            }
         }message: {
             Text(scoreMessage)
         }
@@ -77,11 +98,19 @@ struct ContentView: View {
         }
         
         isScoreAlertShowing = true
+        
     }
     
     func nextQuestion(){
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        questionCount+=1
+    }
+    
+    func newGame(){
+        score = 0
+        questionCount = 0
+        nextQuestion()
     }
     
     
