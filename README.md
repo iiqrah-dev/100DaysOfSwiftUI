@@ -153,6 +153,8 @@
 
   - QofTD 23: "there is no magic in magic, it’s all in the details." - Walt Disney
   - QofTD 24: "any fool can know; the point is to understand" - Albert Einstein
+  
+  - [Technical Project Notes](https://github.com/iiqrah-dev/100DaysOfSwiftUI/blob/main/notes/views-and-modifiers.md)
 
 - Useful Xcode Commands
   - Option+Cmd+P : Resume preview updating
