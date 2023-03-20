@@ -81,6 +81,7 @@ struct ContentView: View {
     //                Used this as I wanted the symbol instead of currency code String
                 Text("Total amount including tip: ")
                 + Text(totalWithTip, format: currencyFormatter )
+                    .foregroundColor(tipPercentage == 0 ? .red : .primary)
                 
                 Text("Amount per person: ")
                 + Text(totalPerPerson, format: currencyFormatter )
