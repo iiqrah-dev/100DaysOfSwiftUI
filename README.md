@@ -155,6 +155,8 @@
   - QofTD 24: "any fool can know; the point is to understand" - Albert Einstein
   
   - [Technical Project Notes](https://github.com/iiqrah-dev/100DaysOfSwiftUI/blob/main/notes/views-and-modifiers.md)
+  
+- [x] [Challenge 2 - Brain Training Game](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/BrainTrainingGame)  
 
 - Useful Xcode Commands
   - Option+Cmd+P : Resume preview updating
