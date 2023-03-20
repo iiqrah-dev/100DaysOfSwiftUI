@@ -7,15 +7,28 @@
 
 import SwiftUI
 
+struct LargeBlueModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(.blue)
+            .font(.largeTitle)
+    }
+}
+
+extension View {
+    
+    func blueAndLarge() -> some View {
+        modifier(LargeBlueModifier())
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
             Text("Hello, world!")
         }
-        .padding()
+        .blueAndLarge()
+//        .modifier(LargeBlueModifier())
     }
 }
 
