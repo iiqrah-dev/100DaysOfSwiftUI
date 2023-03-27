@@ -158,6 +158,13 @@
   
 - [x] [Challenge 2 - Brain Training Game](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/BrainTrainingGame)  
 
+- [x] [Project 4 - BetterRest](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/BetterRest)
+
+  - QofTD 26: "machine intelligence is the last invention that humanity will ever need to make." - Nick Bostrom
+  - QofTD 27: "you cannot discover new oceans unless you have the courage to lose sight of the shore." - Andre Gide
+  - QofTD 28: "Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while. That's because they were able to connect experiences they've had and synthesize new things." - Steve Jobs
+
+
 - Useful Xcode Commands
   - Option+Cmd+P : Resume preview updating
   - Cmd+R : Run app on selected simulator
