@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var opponentChoiceIndex = Int.random(in: 0...2)
     @State private var winCondition = Bool.random()
     
+    @State private var isGameOverAlertShowing = false
+    
     @State private var score = 0
     
     let maxRCount = 10
@@ -41,10 +43,19 @@ struct ContentView: View {
                     }
                 }
                 
+            }.alert("Game Over", isPresented: $isGameOverAlertShowing){
+                Button("Restart", action: newGame)
+            }message: {
+                Text("Your final score is \(score)")
             }
-            
-        }
+            }
 
+    }
+    
+    func newGame(){
+        score = 0
+        roundCount = 0
+        nextRound()
     }
     
     func objectTapped(_ userChoice: String){
@@ -127,15 +138,24 @@ struct ContentView: View {
             }
         }
         
-        
-
         nextRound()
+
+        
     }
     
     func nextRound(){
+        
+        if (roundCount == maxRCount){
+            isGameOverAlertShowing = true
+        }
+        
+        else{
+            roundCount += 1
+        }
+        
         opponentChoiceIndex = Int.random(in: 0...2)
         winCondition = Bool.random()
-        roundCount += 1
+        
     }
 }
 
