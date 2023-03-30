@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var stepValueINT = 1
+    @State private var stepValueDBL = 2.0
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Stepper("\(stepValueINT)", value: $stepValueINT)
+            
+            Stepper("\(stepValueINT)", value: $stepValueINT, in: 0...100)
+            
+            Stepper("\(stepValueDBL.formatted()) hours", value: $stepValueDBL, in: 0...100, step: 0.25)
         }
-        .padding()
     }
 }
 
