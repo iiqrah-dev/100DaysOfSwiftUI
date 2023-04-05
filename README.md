@@ -163,6 +163,12 @@
   - QofTD 26: "machine intelligence is the last invention that humanity will ever need to make." - Nick Bostrom
   - QofTD 27: "you cannot discover new oceans unless you have the courage to lose sight of the shore." - Andre Gide
   - QofTD 28: "Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while. That's because they were able to connect experiences they've had and synthesize new things." - Steve Jobs
+  
+- [x] [Project 5 - WordScramble](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/WordScramble)
+
+  - QofTD 29: "I ? Unicode"
+  - QofTD 30: "Don’t be afraid to give your best to what seemingly are small jobs. Every time you conquer one it makes you strong – if you do the little jobs well, the big ones will tend to care of themselves." - Dale Carnegie
+  - QofTD 31: "Success isn't always about greatness, it's about consistency. Consistent hard work leads to success; greatness will come." - Dwayne “The Rock” Johnson  
 
 
 - Useful Xcode Commands
