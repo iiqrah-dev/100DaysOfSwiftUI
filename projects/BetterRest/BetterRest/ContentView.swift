@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import CoreML
 
 struct ContentView: View {
     
     @State private var wakeUpTime = Date.now
     @State private var sleepAmount = 6.0
     @State private var coffeeAmount = 1
+    
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    @State private var sleepTimeAlertShowing = false
     var body: some View {
         NavigationView{
             
@@ -32,10 +37,41 @@ struct ContentView: View {
             .toolbar{
                 Button("Calculate", action: calculateSleep
                 )}
+        }.alert(alertTitle, isPresented: $sleepTimeAlertShowing){
+            Button("OK"){}
+        }message: {
+            Text(alertMessage)
         }
     }
     
-    func calculateSleep(){}
+    func calculateSleep(){
+        do{
+            let config = MLModelConfiguration()
+            let model = try SleepCalculator(configuration: config)
+            
+            let wakeUpTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: wakeUpTime)
+            
+            let hour = wakeUpTimeComponents.hour ?? 0
+            let minute = wakeUpTimeComponents.second ?? 0
+            
+            let totalTimeSeconds = (hour * 60 * 60) + (minute * 60)
+            
+            let prediction = try model.prediction(wake: Double(totalTimeSeconds)         , estimatedSleep: sleepAmount, coffee: Double(coffeeAmount))
+            
+            let sleepTime = wakeUpTime - prediction.actualSleep
+            
+            alertTitle = "Your ideal bedtime is…"
+            alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
+            
+            
+        }
+        catch{
+            alertTitle = "Error"
+            alertMessage = "Something went wrong, try again."
+            
+        }
+        sleepTimeAlertShowing = true
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
