@@ -5,6 +5,10 @@
 //  Created by Iqrah Nadeem on 27/03/2023.
 //
 
+// To use CreateML, got to XCode > Open Developer Tools > Create ML
+// Provide data set (csv), choose target, features, ML model
+// Run > Validate > Export
+
 import SwiftUI
 
 struct ContentView: View {
