@@ -19,7 +19,7 @@ struct ContentView: View {
     
     @State private var wakeUpTime = defaultWakeUpTime
     @State private var sleepAmount = 6.0
-    @State private var coffeeAmount = 1
+    @State private var coffeeAmount = 3
     
     @State private var alertTitle = ""
     @State private var alertMessage = ""
@@ -45,7 +45,12 @@ struct ContentView: View {
                 
                 
                 Section {
-                    Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 0...24)
+                    Picker("Number of coffee cups", selection: $coffeeAmount){
+                        ForEach(0..<25){ num in
+                            Text(num == 1 ? "1 cup" : "\(num) cups")
+                        }
+                    }
+//                    Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 0...24)
                 }header: {
                     Text("Daily coffee intake")
                 }
