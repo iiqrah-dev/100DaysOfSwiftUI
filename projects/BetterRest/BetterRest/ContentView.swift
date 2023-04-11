@@ -35,10 +35,33 @@ struct ContentView: View {
                 DatePicker("Pick a time", selection: $date, displayedComponents: .hourAndMinute)
                 
                 DatePicker("Pick a date", selection: $date,in: Date.now..., displayedComponents: .date)
-                
-                
             }
+            
+            VStack(){
+                Text("Display Dates")
+                Text(Date.now, format: .dateTime.hour().minute())
+                
+                Text(Date.now.formatted(date: .long, time: .shortened))
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+
         }
+    }
+    
+    func createDateComponent() {
+        
+        // How to create a specific components for a date
+        var component = DateComponents()
+        component.hour = 8
+        component.minute = 0
+        let createdDate = Calendar.current.date(from: component) ?? Date.now
+        
+        // How to extract specific components from a date
+        let dateComponent = Calendar.current.dateComponents([.hour, .minute, .second], from: createdDate)
+        let hour = dateComponent.hour ?? 0
+        let minute = dateComponent.minute ?? 0
+        let second = dateComponent.second ?? 0
+        
     }
 }
 
