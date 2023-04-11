@@ -10,7 +10,14 @@ import CoreML
 
 struct ContentView: View {
     
-    @State private var wakeUpTime = Date.now
+    static var defaultWakeUpTime: Date{
+        var components = DateComponents()
+        components.hour = 7
+        components.minute = 30
+        return Calendar.current.date(from: components) ?? Date.now
+    }
+    
+    @State private var wakeUpTime = defaultWakeUpTime
     @State private var sleepAmount = 6.0
     @State private var coffeeAmount = 1
     
@@ -20,17 +27,25 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             
-            VStack{
-                Text("When do you want to wake up?")
-                DatePicker("Enter Wake Up Time", selection: $wakeUpTime, displayedComponents: .hourAndMinute)
-                    .labelsHidden()
+            Form{
+                VStack {
+                    Text("When do you want to wake up?")
+                    DatePicker("Enter Wake Up Time", selection: $wakeUpTime, displayedComponents: .hourAndMinute)
+                        .labelsHidden()
+                }
+               
                 
-                Text("Desired amount of sleep")
-                Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 2...12, step: 0.25)
+                VStack {
+                    Text("Desired amount of sleep")
+                    Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 2...12, step: 0.25)
+                }
                 
-                Text("Daily coffee intake")
-                Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 0...24)
                 
+                VStack {
+                    Text("Daily coffee intake")
+                    Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups", value: $coffeeAmount, in: 0...24)
+                }
+    
             }
             .font(.headline)
             .navigationTitle("Better Rest")
