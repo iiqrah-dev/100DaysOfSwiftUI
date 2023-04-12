@@ -66,7 +66,7 @@ struct ContentView: View {
         
         let newWord = userTypedWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
                 
-        guard newWord.count > 3 else {
+        guard newWord.count >= 3 else {
             wordError(title: "Word is too short", message: "Think of a word that is longer than 2 letters")
             return
         }
