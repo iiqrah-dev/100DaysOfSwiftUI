@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var userTypedWords = [String]()
-    @State private var originalWord = "Apple"
+    @State private var originalWord = ""
     @State private var userTypedWord = ""
     
     var body: some View {
@@ -33,6 +33,7 @@ struct ContentView: View {
             }
             .navigationTitle(originalWord)
         }.onSubmit(addNewWord)
+            .onAppear(perform: startGame)
     }
     
     func addNewWord(){
@@ -46,6 +47,22 @@ struct ContentView: View {
         }
         
         userTypedWord = ""
+        
+    }
+    
+    func startGame(){
+        
+        if let startTextFileURL = Bundle.main.url(forResource: "start", withExtension: "txt"){
+            if let startWordsString = try? String(contentsOf: startTextFileURL){
+                let startWords = startWordsString.components(separatedBy: "\n")
+                
+                originalWord = startWords.randomElement()!
+                
+                return
+            }
+        }
+        
+        fatalError("Could not load start.txt from bundle.")
         
     }
 }
