@@ -36,6 +36,12 @@ struct ContentView: View {
                 }
             }
             .navigationTitle(originalWord)
+            .toolbar{
+                Button("New Game"){
+                    startGame()
+                    userTypedWords = [String]()
+                }
+            }
         }.onSubmit(addNewWord)
             .onAppear(perform: startGame)
             .alert(errorAlertTitle, isPresented: $iserrorAlertShowing){
