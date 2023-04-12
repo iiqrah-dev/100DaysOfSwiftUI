@@ -13,6 +13,10 @@ struct ContentView: View {
     @State private var originalWord = ""
     @State private var userTypedWord = ""
     
+    @State private var errorAlertTitle = ""
+    @State private var errorAlertMessage = ""
+    @State private var iserrorAlertShowing = false
+    
     var body: some View {
         NavigationView{
             
@@ -34,6 +38,13 @@ struct ContentView: View {
             .navigationTitle(originalWord)
         }.onSubmit(addNewWord)
             .onAppear(perform: startGame)
+            .alert(errorAlertTitle, isPresented: $iserrorAlertShowing){
+                Button("OK", role: .cancel){
+                    userTypedWord = ""
+                }
+            }message: {
+                Text(errorAlertMessage)
+            }
     }
     
     func addNewWord(){
@@ -41,6 +52,24 @@ struct ContentView: View {
         let newWord = userTypedWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard newWord.count > 0 else { return }
+        
+        guard isWordPossible(newWord) else {
+            
+            wordError(title: "Word not possible", message: "You can't spell that word from '\(originalWord)'!")
+            return
+        }
+        
+        guard isWordNew(newWord) else {
+            
+            wordError(title: "Word used already", message: "Be more original")
+            return
+        }
+        
+        guard isWordReal(newWord) else {
+            
+            wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
+            return
+        }
         
         withAnimation {
             userTypedWords.insert(newWord, at: 0)
@@ -66,11 +95,17 @@ struct ContentView: View {
         
     }
     
-    func isWordNew(word: String) -> Bool {
+    func wordError(title: String, message: String){
+        errorAlertTitle = title
+        errorAlertMessage = message
+        iserrorAlertShowing = true
+    }
+    
+    func isWordNew(_ word: String) -> Bool {
         return !userTypedWords.contains(word)
     }
     
-    func isWordPossible(word: String) -> Bool {
+    func isWordPossible(_ word: String) -> Bool {
         var tempOriginalWord = originalWord
         
         for letter in word{
@@ -88,7 +123,7 @@ struct ContentView: View {
     }
     
     
-    func isWordReal(word: String) -> Bool{
+    func isWordReal(_ word: String) -> Bool{
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: word.utf16.count)
         
