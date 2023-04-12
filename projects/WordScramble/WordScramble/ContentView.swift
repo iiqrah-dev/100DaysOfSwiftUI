@@ -20,20 +20,29 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             
-            List{
-                Section {
-                    TextField("Enter your word here", text: $userTypedWord)
-                        .textInputAutocapitalization(.never)
-                }
+            
+            VStack{
                 
                 Section{
-                    ForEach(userTypedWords, id: \.self){ word in
-                        HStack {
-                            Image(systemName: "\(word.count).circle")
-                            Text(word)
+                    Text("Score: ").frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.horizontal)
+                }
+                
+                List{
+                    Section {
+                        TextField("Enter your word here", text: $userTypedWord)
+                            .textInputAutocapitalization(.never)
+                    }
+                    
+                    Section{
+                        ForEach(userTypedWords, id: \.self){ word in
+                            HStack {
+                                Image(systemName: "\(word.count).circle")
+                                Text(word)
+                            }
                         }
                     }
-                }
+                }.listStyle(.insetGrouped)
             }
             .navigationTitle(originalWord)
             .toolbar{
