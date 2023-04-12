@@ -65,6 +65,10 @@ struct ContentView: View {
         fatalError("Could not load start.txt from bundle.")
         
     }
+    
+    func isWordNew(word: String) -> Bool {
+        return !userTypedWords.contains(word)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
