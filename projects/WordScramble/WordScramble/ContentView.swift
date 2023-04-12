@@ -17,6 +17,8 @@ struct ContentView: View {
     @State private var errorAlertMessage = ""
     @State private var iserrorAlertShowing = false
     
+    @State private var score = 0
+    
     var body: some View {
         NavigationView{
             
@@ -24,7 +26,7 @@ struct ContentView: View {
             VStack{
                 
                 Section{
-                    Text("Score: ").frame(maxWidth: .infinity, alignment: .trailing)
+                    Text("Score: \(score)").frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.horizontal)
                 }
                 
@@ -47,8 +49,7 @@ struct ContentView: View {
             .navigationTitle(originalWord)
             .toolbar{
                 Button("New Game"){
-                    startGame()
-                    userTypedWords = [String]()
+                    newGame()
                 }
             }
         }.onSubmit(addNewWord)
@@ -98,6 +99,8 @@ struct ContentView: View {
             userTypedWords.insert(newWord, at: 0)
         }
         
+        score += 1
+        score += newWord.count
         userTypedWord = ""
         
     }
@@ -116,6 +119,12 @@ struct ContentView: View {
         
         fatalError("Could not load start.txt from bundle.")
         
+    }
+    
+    func newGame(){
+        score = 0
+        userTypedWords = [String]()
+        startGame()
     }
     
     func wordError(title: String, message: String){
