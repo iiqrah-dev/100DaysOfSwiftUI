@@ -50,8 +50,16 @@ struct ContentView: View {
     func addNewWord(){
         
         let newWord = userTypedWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+                
+        guard newWord.count > 3 else {
+            wordError(title: "Word is too short", message: "Think of a word that is longer than 2 letters")
+            return
+        }
         
-        guard newWord.count > 0 else { return }
+        guard newWord != originalWord else {
+            wordError(title: "Be more original", message: "You can't use the same word that is given to you!")
+            return
+        }
         
         guard isWordPossible(newWord) else {
             
@@ -61,7 +69,7 @@ struct ContentView: View {
         
         guard isWordNew(newWord) else {
             
-            wordError(title: "Word used already", message: "Be more original")
+            wordError(title: "Word used already", message: "Be more creative")
             return
         }
         
