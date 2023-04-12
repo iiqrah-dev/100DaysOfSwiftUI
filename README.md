@@ -141,7 +141,7 @@
   - QofTD 17: "Experience without theory is blind, but theory without experience is mere intellectual play." - Immanuel Kant
   - QofTD 18: "The difference between try and triumph is a little umph." - Marvin Phillips
   
-- [x] [Challenge 1 - Unit Converter](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/UnitConverter)
+- [x] [Challenge 1 - Unit Converter](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/challenges/UnitConverter)
 
 - [x] [Project 2 - GuessTheFlag](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/GuessTheFlag)
 
@@ -156,7 +156,7 @@
   
   - [Technical Project Notes](https://github.com/iiqrah-dev/100DaysOfSwiftUI/blob/main/notes/views-and-modifiers.md)
   
-- [x] [Challenge 2 - Brain Training Game](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/BrainTrainingGame)  
+- [x] [Challenge 2 - Brain Training Game](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/challenges/BrainTrainingGame)  
 
 - [x] [Project 4 - BetterRest](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/BetterRest)
 
