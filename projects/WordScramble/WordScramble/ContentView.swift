@@ -69,6 +69,23 @@ struct ContentView: View {
     func isWordNew(word: String) -> Bool {
         return !userTypedWords.contains(word)
     }
+    
+    func isWordPossible(word: String) -> Bool {
+        var tempOriginalWord = originalWord
+        
+        for letter in word{
+            
+            if let letterPosition = tempOriginalWord.firstIndex(of: letter){
+                tempOriginalWord.remove(at: letterPosition)
+            }
+            else {
+                return false
+            }
+            
+        }
+        
+        return true
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
