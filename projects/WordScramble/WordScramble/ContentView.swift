@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let names = ["Iqrah", "Yusuf", "Dave"]
+    
     var body: some View {
         VStack {
             List {
@@ -28,6 +31,14 @@ struct ContentView: View {
                 Text("data")
                 Text("data")
                 Text("data")
+            }
+            
+            List (0..<4){ num in
+                Text("\(num)")
+            }
+            
+            List(names, id: \.self){ name in
+                Text(name)
             }
         }
     }
