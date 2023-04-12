@@ -16,3 +16,6 @@ import Foundation
 //
 //    }
 //}
+
+let alphabets = "a b c d e f g"
+let alphaArray = alphabets.components(separatedBy: " ")
