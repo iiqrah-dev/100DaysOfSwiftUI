@@ -169,8 +169,15 @@
   - QofTD 29: "I ? Unicode"
   - QofTD 30: "Don’t be afraid to give your best to what seemingly are small jobs. Every time you conquer one it makes you strong – if you do the little jobs well, the big ones will tend to care of themselves." - Dale Carnegie
   - QofTD 31: "Success isn't always about greatness, it's about consistency. Consistent hard work leads to success; greatness will come." - Dwayne “The Rock” Johnson  
+  
+- [x] [Project 6 - Animation](https://github.com/iiqrah-dev/100DaysOfSwiftUI/tree/main/projects/Animation)
 
-
+  - QofTD 32: "We made the buttons on the screen look so good you'll want to lick them." - Steve Jobs
+  - QofTD 33: "Good design is making something intelligible and memorable; great design is making something memorable and meaningful." - Dieter Rams
+  - QofTD 34: "Goals are dreams with deadlines." - Diana Scharf-Hunt
+  
+  - [Technical Project Notes](https://github.com/iiqrah-dev/100DaysOfSwiftUI/blob/main/notes/animation.md)
+  
 - Useful Xcode Commands
   - Option+Cmd+P : Resume preview updating
   - Cmd+R : Run app on selected simulator
