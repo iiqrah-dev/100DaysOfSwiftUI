@@ -12,7 +12,18 @@ struct ContentView: View {
     @State private var scaleAmount = 1.0
     
     var body: some View {
-        Text("Animation Project")
+        Button("Click Me"){
+            
+            scaleAmount += 1
+            
+        }
+        .padding(50)
+        .background(.red)
+        .foregroundColor(.white)
+        .clipShape(Circle())
+        .scaleEffect(scaleAmount)
+        .blur(radius: (scaleAmount - 1) * 3)
+        .animation(.default, value: scaleAmount)
             
     }
 }
