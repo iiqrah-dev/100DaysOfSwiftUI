@@ -14,24 +14,38 @@ struct ContentView: View {
     var body: some View {
         Button("Click Me"){
             
-            scaleAmount += 1
+            //            scaleAmount += 1
             
         }
         .padding(50)
         .background(.red)
         .foregroundColor(.white)
         .clipShape(Circle())
-        .scaleEffect(scaleAmount)
-        .blur(radius: (scaleAmount - 1) * 3)
-//        .animation(.default, value: scaleAmount)
-//        .animation(.interpolatingSpring(stiffness: 100, damping: 1), value: scaleAmount)
-        .animation(
-            .easeInOut(duration: 2)
-//            .repeatCount(3, autoreverses: true)
-//            .repeatForever(autoreverses: true)
-            .delay(1),
-        value: scaleAmount)
-            
+        //        .scaleEffect(scaleAmount)
+        //        .blur(radius: (scaleAmount - 1) * 3)
+        ////        .animation(.default, value: scaleAmount)
+        ////        .animation(.interpolatingSpring(stiffness: 100, damping: 1), value: scaleAmount)
+        //        .animation(
+        //            .easeInOut(duration: 2)
+        ////            .repeatCount(3, autoreverses: true)
+        ////            .repeatForever(autoreverses: true)
+        //            .delay(1),
+        //        value: scaleAmount)
+        .overlay(
+            Circle()
+                .stroke(.red)
+                .scaleEffect(scaleAmount)
+                .opacity(2 - scaleAmount)
+                .animation(
+                    .easeOut(duration: 1)
+                    .repeatForever(autoreverses: false),
+                    value: scaleAmount
+                )
+        )
+        .onAppear{
+            scaleAmount = 2
+        }
+        
     }
 }
 
