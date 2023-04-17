@@ -24,7 +24,13 @@ struct ContentView: View {
         .scaleEffect(scaleAmount)
         .blur(radius: (scaleAmount - 1) * 3)
 //        .animation(.default, value: scaleAmount)
-        .animation(.interpolatingSpring(stiffness: 100, damping: 1), value: scaleAmount)
+//        .animation(.interpolatingSpring(stiffness: 100, damping: 1), value: scaleAmount)
+        .animation(
+            .easeInOut(duration: 2)
+//            .repeatCount(3, autoreverses: true)
+//            .repeatForever(autoreverses: true)
+            .delay(1),
+        value: scaleAmount)
             
     }
 }
