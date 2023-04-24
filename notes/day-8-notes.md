@@ -13,4 +13,4 @@
       - run and test function with errors, using a do, try, catch block
         - very rarely can use try! and avoid using do,catch
         - in the do block, always have to explicitly mention `try` for every error throwing function
-    - Apple provides some error messages of their own taht can be used in the ctch block `catch{ print(error.localizedDescription) }`
+    - Apple provides some error messages of their own that can be used in the catch block `catch{ print(error.localizedDescription) }`
