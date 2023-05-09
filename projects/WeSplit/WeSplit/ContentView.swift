@@ -21,7 +21,6 @@ struct ContentView: View {
         let tipAmount = (Double(tipPercentage)/100) * totalAmount
         let totalWithTip = totalAmount+tipAmount
         return totalWithTip
-        
     }
     
     var totalPerPerson: Double {
@@ -36,60 +35,44 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Form{
+            Form {
                 Section {
                     TextField("Enter total bill amount? ", value: $totalAmount, format: currencyFormatter)
                         .focused($isBillAmountFocused)
                         .keyboardType(.decimalPad)
-                    //                modifier to restrict keyboard to be only numbers
-                    
-                }header: {
+                } header: {
                     Text("What is the total bill? 💸")
                 }
+                Section {
+                    Picker("Choose ", selection: $numberOfPeople){
+                        ForEach(2..<100){
+                            Text("\($0) people")
+                        }
+                    }.pickerStyle(.menu)
+                } header: {
+                    Text("How many people? 🤔")
+                }
+                Section {
+                    Picker("Tip", selection: $tipPercentage){
+                        ForEach(0..<101){
+                            Text($0, format: .percent)
+                        }
+                    }.pickerStyle(.menu)
                     
-                    Section {
-                        Picker("Choose ", selection: $numberOfPeople){
-                            ForEach(2..<100){
-                                Text("\($0) people")
-                            }
-                        }.pickerStyle(.menu)
-                    }header: {
-                        Text("How many people? 🤔")
-                    }
+                } header: {
+                    Text("What % of tip do you choose? 💁‍♀️")
+                }
+                Section{
+                    Text("Total amount including tip: ")
+                    + Text(totalWithTip, format: currencyFormatter )
+                        .foregroundColor(tipPercentage == 0 ? .red : .primary)
                     
-                    Section {
-//                        Picker("Tip", selection: $tipPercentage){
-//                            ForEach(tipPercentOptions, id: \.self){
-//                                Text($0, format: .percent)
-//                            }
-//                        }.pickerStyle(.segmented)
-                        
-                        Picker("Tip", selection: $tipPercentage){
-                            ForEach(0..<101){
-                                Text($0, format: .percent)
-                            }
-                        }.pickerStyle(.menu)
-                        
-                    }header: {
-                        Text("What % of tip do you choose? 💁‍♀️")
-                    }
-                    
-                
-            
-            Section{
-    //                + Adds multiple texts together
-    //                Used this as I wanted the symbol instead of currency code String
-                Text("Total amount including tip: ")
-                + Text(totalWithTip, format: currencyFormatter )
-                    .foregroundColor(tipPercentage == 0 ? .red : .primary)
-                
-                Text("Amount per person: ")
-                + Text(totalPerPerson, format: currencyFormatter )
-            }header: {
-                Text("Calculated amount ⬇️")
+                    Text("Amount per person: ")
+                    + Text(totalPerPerson, format: currencyFormatter )
+                } header: {
+                    Text("Calculated amount ⬇️")
+                }
             }
-            }
-            
             .navigationTitle("WeSplit App")
         }.toolbar {
             ToolbarItemGroup(placement: .keyboard) {
