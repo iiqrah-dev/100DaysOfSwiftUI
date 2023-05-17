@@ -7,65 +7,82 @@
 
 import SwiftUI
 
+enum Unit: String, CaseIterable, Identifiable {
+    
+    var id: String {
+        rawValue
+    }
+    
+    case centimeter = "cm"
+    case meter = "m"
+    case kilometer = "km"
+    
+    var cmConversion: Double {
+        switch self {
+        case .centimeter:
+            return 1
+        case .meter:
+            return 100
+        case .kilometer:
+            return 10_000
+        }
+    }
+}
+
 struct ContentView: View {
     
-    @State private var inputValue:Double?
-    @State private var inputUnit:String = "cm"
-    @State private var outputUnit:String = "km"
+    @State private var inputValue: Double?
+    @State private var inputUnit = Unit.centimeter
+    @State private var outputUnit = Unit.kilometer
     
-    let units = ["cm", "m", "km"]
-    let cmConversion = ["cm": 1, "m": 100, "km": 100000]
-    
-    var resultValue: Double {
-        if let inputValue = inputValue {
-            if let inputConversionValue = cmConversion[inputUnit] {
-                if let outputConversionValue = cmConversion[outputUnit] {
-                    return (Double(inputConversionValue) * inputValue / Double(outputConversionValue))
-                }
-            }
+    private var resultValue: Double {
+        guard
+            let inputValue = inputValue
+        else {
+            return 0
         }
-        return 0
+        
+        let convertionRatio = inputUnit.cmConversion / outputUnit.cmConversion
+        return inputValue * convertionRatio
     }
     
     var body: some View {
         NavigationView{
-            Form{
-                
-                Section{
+            Form {
+                Section {
                     TextField("Enter value for conversion", value: $inputValue, format: .number)
-                    Picker("Choose input unit", selection: $inputUnit){
-                        ForEach(units, id: \.self){
-                            Text($0)
+                    Picker("Choose input unit", selection: $inputUnit) {
+                        ForEach(Unit.allCases) {
+                            Text($0.rawValue).tag($0)
                         }
+                        
+                        /*
+                         Text("cm").tag(Unit.centimeter)
+                         Text("m").tag(Unit.meter)
+                         Text("km").tag(Unit.kilometer)
+                         */
                     }.pickerStyle(.segmented)
                 } header: {
                     Text("Choose input values")
                 }
                 
-                Section{
-                    Picker("Choose output unit", selection: $outputUnit){
-                        ForEach(units, id: \.self){
-                            Text($0)
+                Section {
+                    Picker("Choose output unit", selection: $outputUnit) {
+                        ForEach(Unit.allCases) {
+                            Text($0.rawValue).tag($0)
                         }
                     }.pickerStyle(.segmented)
-                    
                 } header: {
                     Text("Choose output unit")
                 }
-
-                Section{
+                
+                Section {
                     Text(resultValue, format: .number)
                 } header: {
-                Text("Result")
+                    Text("Result")
                 }
             }
             .navigationBarTitle("Unit Converter")
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
