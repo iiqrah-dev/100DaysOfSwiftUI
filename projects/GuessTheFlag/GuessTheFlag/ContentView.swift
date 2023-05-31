@@ -9,7 +9,15 @@ import SwiftUI
 
 struct FlagImage: View {
     
-    var flag: String
+    // or
+    //let flag: String
+    
+    private let flag: String
+    
+    init(flag: String) {
+        self.flag = flag
+    }
+    
     var body: some View {
         Image(flag)
             .renderingMode(.original)
@@ -18,13 +26,37 @@ struct FlagImage: View {
     }
 }
 
+class AlertContext: ObservableObject {
+    
+    var isActive = false
+    var isActiveBinding: Binding<Bool> {
+        .init(get: { self.isActive }, set: { self.isActive = $0 })
+    }
+    
+    @Published var title: String = ""
+    @Published var actions: () -> AnyView = { AnyView(erasing: EmptyView()) }
+    
+    init() {}
+    
+    func present(title: String, buttonTitle: String, buttonAction: @escaping () -> Void) {
+        self.title = title
+        self.actions = { AnyView(erasing: Button(buttonTitle, action: buttonAction)) }
+        self.isActive = true
+    }
+}
+
+extension View {
+    func alert(_ context: AlertContext) -> some View {
+        alert(context.title, isPresented: context.isActiveBinding, actions: context.actions)
+    }
+}
+
 struct ContentView: View {
     
-    @State private var isScoreAlertShowing = false
+    @State private var isWrongAnswerAlertShowing = false
     @State private var isGameOverAlertShowing = false
     
-    @State private var answerTitle = ""
-    @State private var scoreMessage = ""
+    @State private var wrongAnswerMessage = ""
     @State private var score = 0
     @State private var questionCount = 1
     
@@ -34,6 +66,8 @@ struct ContentView: View {
     
     @State private var correctAnswer = Int.random(in: 0...2)
     private var scoreAlertShowing = false
+    
+    @ObservedObject private var alertContext = AlertContext()
     
     var body: some View {
         ZStack {
@@ -49,21 +83,20 @@ struct ContentView: View {
                         .font(.subheadline.weight(.heavy))
                     Text("\(countries[correctAnswer])")
                         .font(.largeTitle.weight(.semibold))
-                }.foregroundColor(.black)
-                    .padding(.top)
+                }
+                .foregroundColor(.black)
+                .padding(.top)
                 
                 Text("\(questionCount)/\(maxQCount)")
                     .font(.subheadline.weight(.heavy))
                 
                 Spacer()
                 
-                VStack(spacing: 30) {
+                VStack(spacing: 30) { // why need spacing AND padding
                     ForEach(0..<3) { index in
-                        Button() {
+                        FlagImage(flag: countries[index]).onTapGesture {
                             flagTapped(index)
-                        } label: {
-                            FlagImage(flag: countries[index])
-                        }.padding(.bottom)
+                        }
                     }
                 }
                 
@@ -77,42 +110,42 @@ struct ContentView: View {
                 Text("Final Score: \(score)")
             }
             
-        }.alert(answerTitle, isPresented: $isScoreAlertShowing) {
-            Button("Continue") {
-                if questionCount == maxQCount {
-                    isGameOverAlertShowing = true
-                }
-                else {
-                    nextQuestion()
-                }
-            }
-        } message: {
-            Text(scoreMessage)
         }
+        .alert(alertContext)
+//        .alert("Wrong", isPresented: $isWrongAnswerAlertShowing) {
+//            Button("Continue", action: nextQuestion)
+//        } message: {
+//            Text(wrongAnswerMessage)
+//        }
     }
     
-    func flagTapped(_ number: Int) {
+    private func flagTapped(_ number: Int) {
         
-        if correctAnswer == number {
-            answerTitle = "Correct!"
-            score+=1
-            scoreMessage = "Your scaore is \(score)"
-        }
-        else {
-            answerTitle = "Wrong"
-            scoreMessage = "Your scaore is \(score)\nThat is the flag of \(countries[number])"
+        guard correctAnswer == number else {
+            self.alertContext.present(title: "Wrong", buttonTitle: "Continue", buttonAction: nextQuestion)
+            wrongAnswerMessage = "That is the flag of \(countries[number])"
+            isWrongAnswerAlertShowing = true
+            return
         }
         
-        isScoreAlertShowing = true
+        score += 1
+        nextQuestion()
     }
     
-    func nextQuestion() {
-        countries.shuffle()
-        correctAnswer = Int.random(in: 0...2)
-        questionCount+=1
+    private func nextQuestion() {
+        guard questionCount < maxQCount else {
+            isGameOverAlertShowing = true
+            return
+        }
+        
+        withAnimation {
+            countries.shuffle()
+            correctAnswer = Int.random(in: 0...2)
+            questionCount+=1
+        }
     }
     
-    func newGame() {
+    private func newGame() {
         score = 0
         questionCount = 0
         nextQuestion()
