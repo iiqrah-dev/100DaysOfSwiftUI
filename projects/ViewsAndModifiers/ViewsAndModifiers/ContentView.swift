@@ -16,7 +16,6 @@ struct LargeBlueModifier: ViewModifier {
 }
 
 extension View {
-    
     func blueAndLarge() -> some View {
         modifier(LargeBlueModifier())
     }
@@ -26,9 +25,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Hello, world!")
-        }
-        .blueAndLarge()
-//        .modifier(LargeBlueModifier())
+        }.blueAndLarge()
     }
 }
 
