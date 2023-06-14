@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let objects = ["rock", "paper", "scissors"]
+    private let objects = ["rock", "paper", "scissors"]
     
     @State private var opponentChoiceIndex = Int.random(in: 0...2)
     @State private var winCondition = Bool.random()
@@ -18,12 +18,12 @@ struct ContentView: View {
     
     @State private var score = 0
     
-    let maxRCount = 10
+    private let maxRCount = 10
     @State private var roundCount = 1
     
     var body: some View {
         VStack {
-            HStack{
+            HStack {
                 Text("\(roundCount)/\(maxRCount)")
                 Text("Score: \(score)")
             }
@@ -33,129 +33,99 @@ struct ContentView: View {
             Text("You should ") +
             Text(winCondition == true ? "win" : "lose")
             
-            HStack{
-                
+            HStack {
                 ForEach(0..<3){ objectIndex in
-                    Button(){
+                    Button() {
                         objectTapped(objects[objectIndex])
-                    }label: {
+                    } label: {
                         Text(objects[objectIndex])
                     }
                 }
-                
-            }.alert("Game Over", isPresented: $isGameOverAlertShowing){
+            }.alert("Game Over", isPresented: $isGameOverAlertShowing) {
                 Button("Restart", action: newGame)
-            }message: {
+            } message: {
                 Text("Your final score is \(score)")
             }
-            }
-
+        }
     }
     
-    func newGame(){
+    func newGame() {
         score = 0
         roundCount = 0
         nextRound()
     }
     
-    func objectTapped(_ userChoice: String){
-        
+    func objectTapped(_ userChoice: String) {
         let opponentChoice = objects[opponentChoiceIndex]
-        
         if opponentChoice == userChoice {
             print("Don't Draw")
         }
-        
-        else{
+        else {
             if winCondition {
                 if opponentChoice == "rock" {
                     if userChoice == "paper" {
                         score += 1
                     }
-                    
                     else if userChoice == "scissors" {
                         score -= 1
                     }
                 }
-                
                 else if opponentChoice == "paper" {
-                    
                     if userChoice == "scissors" {
                         score += 1
                     }
-                    
                     else if userChoice == "rock" {
                         score -= 1
                     }
                 }
-                
                 else if opponentChoice == "scissors" {
-                    
                     if userChoice == "rock" {
                         score += 1
                     }
-                    
                     else if userChoice == "paper" {
                         score -= 1
                     }
                 }
             }
-            
-            else{
-                
+            else {
                 if opponentChoice == "rock" {
                     if userChoice == "paper" {
                         score -= 1
                     }
-                    
                     else if userChoice == "scissors" {
                         score += 1
                     }
                 }
-                
                 else if opponentChoice == "paper" {
-                    
                     if userChoice == "scissors" {
                         score -= 1
                     }
-                    
                     else if userChoice == "rock" {
                         score += 1
                     }
                 }
-                
                 else if opponentChoice == "scissors" {
-                    
                     if userChoice == "rock" {
                         score -= 1
                     }
-                    
                     else if userChoice == "paper" {
                         score += 1
                     }
                 }
-                
             }
         }
-        
         nextRound()
-
-        
     }
     
-    func nextRound(){
-        
-        if (roundCount == maxRCount){
+    func nextRound() {
+        if (roundCount == maxRCount) {
             isGameOverAlertShowing = true
         }
-        
         else{
             roundCount += 1
         }
-        
         opponentChoiceIndex = Int.random(in: 0...2)
         winCondition = Bool.random()
-        
     }
 }
 
